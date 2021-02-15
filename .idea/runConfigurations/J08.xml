@@ -1,0 +1,14 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="J08" type="JUnit" factoryName="JUnit">
+    <module name="comp1110-homework" />
+    <option name="PACKAGE_NAME" value="comp1110.homework.J08" />
+    <option name="MAIN_CLASS_NAME" value="comp1110.homework.J08.SentenceTest" />
+    <option name="METHOD_NAME" value="" />
+    <option name="TEST_OBJECT" value="class" />
+    <option name="PARAMETERS" value="" />
+    <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

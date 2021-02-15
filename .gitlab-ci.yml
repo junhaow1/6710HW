@@ -1,0 +1,169 @@
+image: milthorpe/comp1110-2021-s1-gitlab-ci:0.1.2
+
+stages:
+  - build
+  - test
+
+before_script:
+  - export PATH_TO_FX=/usr/share/openjfx/lib
+  - export JAVAFX_OPTIONS="--module-path $PATH_TO_FX --add-modules=javafx.controls,javafx.fxml,javafx.media"
+  - export CP=src:/homework/comp1110-homework.jar:/shared/junit-platform-console-standalone-1.7.0.jar
+  - export JUNIT="java $JAVAFX_OPTIONS -jar /shared/junit-platform-console-standalone-1.7.0.jar --class-path $CP --disable-banner"
+
+build:
+  tags:
+    - comp1110
+  stage: build
+  script:
+    - javac -encoding ISO-8859-1 $JAVAFX_OPTIONS -cp $CP src/comp1110/homework/*/*.java
+  artifacts:
+    paths:
+      - src/comp1110/homework/*/*.class
+
+J01:
+  tags:
+    - comp1110
+  stage: test
+  script:
+    - $JUNIT -c=comp1110.homework.J01.HelloWorldTest
+    - $JUNIT -c=comp1110.homework.J01.GreetTest
+    - $JUNIT -c=comp1110.homework.J01.NumberWordTest
+  allow_failure: true
+
+J02:
+  tags:
+    - comp1110
+  stage: test
+  script:
+    - $JUNIT -c=comp1110.homework.J02.SimpleIntTest
+    - $JUNIT -c=comp1110.homework.J02.SimpleStringTest
+  allow_failure: true
+
+J03:
+  tags:
+    - comp1110
+  stage: test
+  script:
+    - $JUNIT -c=comp1110.homework.J03.LiteralsTest
+    - $JUNIT -c=comp1110.homework.J03.SquareTest
+  allow_failure: true
+
+J04:
+  tags:
+    - comp1110
+  stage: test
+  script:
+    - $JUNIT -c=comp1110.homework.J04.NameTest
+    - $JUNIT -c=comp1110.homework.J04.ShoeSizeTest
+    - $JUNIT -c=comp1110.homework.J04.ShiftCipherTest
+  allow_failure: true
+
+J05:
+  tags:
+    - comp1110
+  stage: test
+  script:
+    - $JUNIT -c=comp1110.homework.J05.GradeTest
+    - $JUNIT -c=comp1110.homework.J05.MovieTest
+    - $JUNIT -c=comp1110.homework.J05.OddTest
+  allow_failure: true
+
+J06:
+  tags:
+    - comp1110
+  stage: test
+  script:
+    - $JUNIT -c=comp1110.homework.J06.EvenTest
+    - $JUNIT -c=comp1110.homework.J06.OnesTest
+    - $JUNIT -c=comp1110.homework.J06.PermuteTest
+    - $JUNIT -c=comp1110.homework.J06.PrimeTest
+  allow_failure: true
+
+J07:
+  tags:
+    - comp1110
+  stage: test
+  script:
+    - $JUNIT -c=comp1110.homework.J07.MenuTest
+  allow_failure: true
+
+J08:
+  tags:
+    - comp1110
+  stage: test
+  script:
+    - $JUNIT -c=comp1110.homework.J08.SentenceTest
+  allow_failure: true
+
+J09:
+  tags:
+    - comp1110
+  stage: test
+  script:
+    - $JUNIT -c=comp1110.homework.J09.TeenCountTest
+  allow_failure: true
+
+J11:
+  tags:
+    - comp1110
+  stage: test
+  script:
+    - $JUNIT -c=comp1110.homework.J11.CompressStringTest
+  allow_failure: true
+
+J12:
+  tags:
+    - comp1110
+  stage: test
+  script:
+    - $JUNIT -c=comp1110.homework.J12.ExchangeTest
+  allow_failure: true
+
+J14:
+  tags:
+    - comp1110
+  stage: test
+  script:
+    - $JUNIT -c=comp1110.homework.J14.MeanTest
+    - $JUNIT -c=comp1110.homework.J14.NamesTest
+    - $JUNIT -c=comp1110.homework.J14.PeopleTest
+    - $JUNIT -c=comp1110.homework.J14.ShopTest
+    - $JUNIT -c=comp1110.homework.J14.CostTest
+  allow_failure: true
+
+C01:
+  tags:
+    - comp1110
+  stage: test
+  script:
+    - $JUNIT -c=comp1110.homework.C01.RoutePlannerTest
+  allow_failure: true
+
+O01:
+  tags:
+    - comp1110
+  stage: test
+  script:
+    - $JUNIT -c=comp1110.homework.O01.BMITest
+  allow_failure: true
+
+O02:
+  tags:
+    - comp1110
+  stage: test
+  script:
+    - $JUNIT -c=comp1110.homework.O02.ElementTest
+  allow_failure: true
+
+O04:
+  tags:
+    - comp1110
+  stage: test
+  script:
+    - $JUNIT -c=comp1110.homework.O04.ShapeTest
+    - $JUNIT -c=comp1110.homework.O04.SumTest
+  allow_failure: true
+  
+## Local Variables:
+## mode: yaml
+## End:
