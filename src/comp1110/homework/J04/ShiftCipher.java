@@ -9,9 +9,31 @@ public class ShiftCipher {
 
 
     public static char convertChar (char c, int shift){
-        int output = Character.getNumericValue(c) + shift;
-        char out = (char) output;
-        return out;
+
+        if ((c>='a' && c<='z')){
+            int output = (int) c +shift;
+            if (output <=122){
+                char out = (char) output;
+                return out;
+            } else {
+                output = 96  + ((int) c + shift)%122;
+                char out = (char) output;
+                return out;
+            }
+        } else if (c>='A' && c<='Z'){
+            int output = (int) c +shift;
+            if (output <=90){
+                char out = (char) output;
+                return out;
+            } else {
+                output = 64 + ((int) c + shift)%90;
+                char out = (char) output;
+                return out;
+            }
+        } else {
+            return ' ';
+        }
+
     }
 
     public static void main(String[] args) {
@@ -21,12 +43,28 @@ public class ShiftCipher {
 
         ArrayList<Character> outputArray = new ArrayList<Character>(text.length());
 
+
         for (char each : text.toCharArray()){
-            outputArray.add(convertChar(each,shift) );
+
+            if ((each>='a' && each<='z') || (each>='A' && each<='Z')){
+                outputArray.add(convertChar(each,shift) );
+            } else {
+                outputArray.add(each );
+            }
+
+
+
 
         }
 
-        System.out.println(outputArray.toArray().toString());
+        StringBuilder builder = new StringBuilder(outputArray.size());
+        for(Character ch: outputArray)
+        {
+            builder.append(ch);
+        }
+
+        System.out.println(builder.toString());
+
 
     }
 }

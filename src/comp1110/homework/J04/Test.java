@@ -5,12 +5,14 @@ public class Test {
         char c = 'A';
         int shift = 1;
         int output = Character.getNumericValue(c) + shift;
-        int radix = 10;
+//        int radix = 10;
 
-        char out = Character.forDigit(output,radix);
+//        char out = Character.forDigit(output,radix);
+
+        int out = (char) output;
 
         System.out.println(Character.getNumericValue(c));
-        System.out.println(out);
+        System.out.println("|" + out + "|");
         System.out.println(output);
 
 
