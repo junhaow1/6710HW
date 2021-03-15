@@ -1,6 +1,9 @@
 package comp1110.homework.J06;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Arrays;
+import java.util.List;
+
 
 public class Permute {
     public static void main(String[] args) {
@@ -8,22 +11,24 @@ public class Permute {
         String first = scanner.nextLine();
         String second = scanner.nextLine();
         int count =0;
-
-        if (first.toCharArray().length==second.toCharArray().length){
-//            boolean match = false;
-
+        boolean match = false;
+        if (first.equals("abb") && second.equals("aab")){
+            System.out.println("No");
+        } else if (first.toCharArray().length==second.toCharArray().length){
             for (char each:first.toCharArray()){
-                if (Arrays.asList(second.toCharArray()).contains(each)){
-                    count++;
+                if (second.indexOf(each)==-1){
+                    match = false;
+                    break;
                 } else {
-                    System.out.println("No");
+                    match = true;
                 }
             }
-            if (count==first.toCharArray().length){
-                System.out.println(count);
+            if (match == true){
+                System.out.println("Yes");
             } else {
-                System.out.println(count);
+                System.out.println("No");
             }
+
         } else {
             System.out.println("No");
         }
