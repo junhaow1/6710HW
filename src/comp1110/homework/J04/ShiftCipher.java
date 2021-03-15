@@ -52,9 +52,6 @@ public class ShiftCipher {
                 outputArray.add(each );
             }
 
-
-
-
         }
 
         StringBuilder builder = new StringBuilder(outputArray.size());
