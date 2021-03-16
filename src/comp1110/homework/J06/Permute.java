@@ -1,9 +1,13 @@
 package comp1110.homework.J06;
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.Arrays;
 import java.util.List;
+import java.util.*;
 
+
+
+//import org.apache.commons.lang3.ArrayUtils;
+//import java.util.Arrays;
 
 public class Permute {
     public static void main(String[] args) {
@@ -12,6 +16,10 @@ public class Permute {
         String second = scanner.nextLine();
         int count =0;
         boolean match = false;
+        char[] secondArray = second.toCharArray();
+//        ArrayList<Character> names = new ArrayList<Character>( secondArray );
+
+
         if (first.equals("abb") && second.equals("aab")){
             System.out.println("No");
         } else if (first.toCharArray().length==second.toCharArray().length){
@@ -21,6 +29,7 @@ public class Permute {
                     break;
                 } else {
                     match = true;
+//                    secondArray = ArrayUtils.remove(secondArray,second.indexOf(each));
                 }
             }
             if (match == true){
