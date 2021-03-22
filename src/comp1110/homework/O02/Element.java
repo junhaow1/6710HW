@@ -11,14 +11,16 @@ public enum Element {
     private int weight;
     private int group;
     private int period;
+    private int[] facts ;
 
     Element(int weight, int group, int period) {
         this.group = group;
         this.weight = weight;
         this.period = period;
+        facts = new int[]{weight,group,period};
     }
 
-    private int[] facts ;
+
 
     public int[] getFacts() {
         return new int[]{weight,group,period};
