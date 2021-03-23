@@ -7,7 +7,7 @@ public class Circle extends Shape {
 
     @Override
     public boolean overlaps(Shape other) {
-        return false;
+        return ((other.x - this.x) * (other.x - this.x) + (other.y - this.y) * (other.y - this.y)) < (length * length);
     }
 
     @Override
@@ -19,8 +19,6 @@ public class Circle extends Shape {
     public double area() {
         return Math.PI * length * length;
     }
-
-
 
 
     public Circle(double length) {
