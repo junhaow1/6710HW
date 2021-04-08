@@ -7,10 +7,10 @@ public class Square extends Shape {
 
     @Override
     public boolean overlaps(Shape other) {
-        return ((other.x >= this.x - length) && (other.x <= this.x + length)) && ((other.y >= this.y - length) && (other.y <= this.y + length));
+        return ((other.x >= this.x - length) && (other.x <= this.x + length)) &&
+                ((other.y >= this.y - length) && (other.y <= this.y + length));
 
     }
-
     @Override
     public double perimeter() {
         return 4*length;
